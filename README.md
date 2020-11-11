@@ -10,7 +10,12 @@ Below text copied from original posting:-
 
 Screenshot of TightVNC remote installation on 77 computers.
 
-
+<img
+src=“Screenshot.png”
+raw=true
+alt=“Example screenshot”
+style=“margin-right: 10px;”
+/>
 
 This script install software remotely in a group of computers and retry the installation in case of error.
 
