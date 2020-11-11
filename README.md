@@ -5,6 +5,7 @@ This is a copy of a PowerShell script created by JuanGranados which was original
 
 I created a copy of it here as TechNet Gallery is closing down soon and the script works so well I didn't want it to be lost, quite happy to remove it if original creator moves it to GitHub himself in future
 
+---
 
 Below text copied from original posting:-
 
