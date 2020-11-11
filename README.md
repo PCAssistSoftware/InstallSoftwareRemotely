@@ -7,6 +7,13 @@ I created a copy of it here as TechNet Gallery is closing down soon and the scri
 
 ---
 
+Changes made from original script:-
+
+1) Fixed typo "Coping" = "Copying"
+2) Added check to make sure computer online before trying to copy files / install etc
+
+---
+
 Below text copied from original posting:-
 
 Screenshot of TightVNC remote installation on 77 computers.
