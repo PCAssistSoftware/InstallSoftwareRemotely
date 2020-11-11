@@ -499,7 +499,7 @@ Do{
                 Continue
             }
         }
-        Set-Message "Coping $($ApplicationFolderPath) to \\$($Computer)\$($LocalPath -replace ':','$')"
+        Set-Message "Copying $($ApplicationFolderPath) to \\$($Computer)\$($LocalPath -replace ':','$')"
         try{
             Copy-WithProgress "$ApplicationFolderPath" "\\$($Computer)\$("$($LocalPath)\$($ApplicationFolderName)" -replace ':','$')"
         }catch{
