@@ -460,6 +460,11 @@ Do{
     Set-Message "Attempt $(($TotalRetries - $Retries) +1) of $($TotalRetries)" -ForegroundColor Cyan
     Set-Message "-----------------------------------------------------------------"
     $Count = 1
+    
+    If (Test-Connection -ComputerName $Computer -Count 1 -Quiet)
+            {
+            Write-Host "$Computer is Online"
+	    
     ForEach ($Computer in $ComputerList){
         Set-Message "COMPUTER $($Computer.ToUpper()) ($($Count) of $($ComputerList.Count))" -ForegroundColor Yellow
         $Count++
@@ -528,6 +533,12 @@ Do{
                 Remove-Item "\\$($Computer)\$($LocalPath -replace ':','$')\$($ApplicationFolderName)" -Force -Recurse
                 CheckPSRemoting $Computer
             }
+	    
+	     	} else {
+      			Write-Host "$Computer is offline"
+       			$ComputerWithError.Add($Computer) | Out-Null
+    		}
+	    
     }
     If ($ComputerWithError.Count -eq 0){
         break
