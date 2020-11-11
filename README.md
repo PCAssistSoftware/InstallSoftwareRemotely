@@ -23,35 +23,35 @@ It uses Powershell to perform the installation. Target computer must allow Windo
 
 Please, read parameter description carefully before running
 
-AppPath: Path to the application executable, It can be a network or local path because entire folder will be copied to remote computer before installing and deleted after installation.    
+**AppPath:** Path to the application executable, It can be a network or local path because entire folder will be copied to remote computer before installing and deleted after installation.    
 
 Example: 'C:\Software\TeamViewer\TeamvieverHost.msi' (Folder TeamViewer will be copied to remote computer before run ejecutable).
 
-AppArgs: Application arguments to perform silent installation.
+**AppArgs:** Application arguments to perform silent installation.
 
 Example: '/S /R settings.reg'.
 
-LocalPath: Local path of the remote computer where copy application directory.
+**LocalPath:** Local path of the remote computer where copy application directory.
 
 Default: 'C:\temp'.
 
-Retries: Number of times to retry failed installations.
+**Retries:** Number of times to retry failed installations.
 
 Default: 5.
 
-TimeBetweenRetries: Seconds to wait before retrying failed installations.
+**TimeBetweenRetries:** Seconds to wait before retrying failed installations.
 
 Default: 60
 
-ComputerList: List of computers in install software. You can only use one source of target computers: ComputerList, OU or CSV.
+**ComputerList:** List of computers in install software. You can only use one source of target computers: ComputerList, OU or CSV.
 
 Example: Computer001,Computer002,Computer003 (Without quotation marks).
 
-OU: OU containing computers in which install software. RSAT for AD module for Powershell must be installed in order to query AD. If you run script from a Domain Controller, AD module for Powershell is already enabled.
+**OU:** OU containing computers in which install software. RSAT for AD module for Powershell must be installed in order to query AD. If you run script from a Domain Controller, AD module for Powershell is already enabled.
 
 Example: 'OU=Test,OU=Computers,DC=CONTOSO,DC=COM'.
 
-CSV: CSV file containing computers in which install software.
+**CSV:** CSV file containing computers in which install software.
 
 Example: 'C:\Scripts\Computers.csv'
 
@@ -65,17 +65,17 @@ Computer002
 
 Computer003.
 
-LogPath: 
+**LogPath: **
 
  Path where save log file.
 
 Default: My Documents.
 
-Credential: Script will ask for an account to perform remote installation.
+**Credential:** Script will ask for an account to perform remote installation.
 
-EnablePSRemoting: Try to enable PSRemoting on failed computers using Psexec. Psexec has to be on system path. If PSExec is not found. Script ask to download automatically PSTools and copy them to C:\Windows\System32.
+**EnablePSRemoting:** Try to enable PSRemoting on failed computers using Psexec. Psexec has to be on system path. If PSExec is not found. Script ask to download automatically PSTools and copy them to C:\Windows\System32.
 
-AppName: App name as shown in registry to check if app is installed on remote computer and not reinstall it.
+**AppName:** App name as shown in registry to check if app is installed on remote computer and not reinstall it.
 
 You can check app name on a computer with it installed looking at:   
 
@@ -87,7 +87,7 @@ Example: 'TightVNC'
 
 Default: None
 
-AppVersion: App name as shown in registry to check if app is installed on remote computer and not reinstall it. If not specified and AppName has a value, version will be ignored.
+**AppVersion:** App name as shown in registry to check if app is installed on remote computer and not reinstall it. If not specified and AppName has a value, version will be ignored.
 
 You can check app version on a computer with it installed looking at:
 
@@ -99,7 +99,7 @@ Example: '2.0.8.1'
 
 Default: all
 
-WMIQuery: WMI Query to execute in remote computers. Software will be installed if query returns values.
+**WMIQuery:** WMI Query to execute in remote computers. Software will be installed if query returns values.
 
 Example: 'select * from Win32_Processor where DeviceID="CPU0" and AddressWidth="64"' (64 bit computers)
 
@@ -114,7 +114,7 @@ http://terenceluk.blogspot.com/2019/02/using-installsoftwareremotelyps1-to.html
 
 Other examples:
 
-PowerShell
+```
 #Install TightVNC mirage Driver using computer list with different credentials checking before if it is installed and computers have 32 bits, enabling PSRemoting on connection error. 
 .\InstallSoftwareRemotely.ps1 ` 
 -AppPath 'C:\Scripts\TightVNC\dfmirage-setup-2.0.301.exe' ` 
@@ -140,3 +140,4 @@ PowerShell
  
 #Upgrade VMware Tools in datacenter OU 
 .\InstallSoftwareRemotely.ps1 -AppPath "\\mv-srv-fs01\Software\VMware Tools\setup64.exe" -AppArgs '/s /v "/qn reboot=r"' -OU "OU=Datacenter,DC=CONTOSO,DC=COM" 
+```
