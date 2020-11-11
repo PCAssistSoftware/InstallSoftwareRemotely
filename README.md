@@ -114,7 +114,7 @@ http://terenceluk.blogspot.com/2019/02/using-installsoftwareremotelyps1-to.html
 
 Other examples:
 
-```
+```powershell
 #Install TightVNC mirage Driver using computer list with different credentials checking before if it is installed and computers have 32 bits, enabling PSRemoting on connection error. 
 .\InstallSoftwareRemotely.ps1 ` 
 -AppPath 'C:\Scripts\TightVNC\dfmirage-setup-2.0.301.exe' ` 
